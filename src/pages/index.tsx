@@ -39,20 +39,23 @@ const exercises = [
   }
 ];
 
-// Renderizar cada exercício como um card ( com link ) para a página na qual vocês irão desenvolver
-// Sugestão de card 
-// p-8 flex rounded-md border border-zinc-300
-
 export default function Home() {
 
   return (
     <>
-      {exercises.map(exercicio => {
-
-        return(
-          <Link href={'exercicio-1'}><p>{exercicio.title}</p></Link>
-        )
-      })}
+    
+    {exercises.map(exercicio => {
+      return(
+        
+        <Link className="flex flex=col w-full min-h-25 mt-4 items-center justify-center hover:bg-gray-300  hover:text-2xl hover:text-black hover:ease-in-out hover:duration-300" href={`exercicio-${exercicio.id}`}>
+        <div className="flex flex-col items-center">
+        <p className="text-md">{exercicio.title}</p>
+        <p className="text-sm my-2">{exercicio.description}</p>
+        </div>
+        </Link>
+        
+      )
+    })}
     </>
   );
 }
